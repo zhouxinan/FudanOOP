@@ -1,0 +1,19 @@
+Question 1
+	What will be print out of the program? Why it has such output?
+Answer: 
+	On my Macbook Pro, the output is:
+		0x7fff530e9a5c
+		0x7fff530e9a50
+		0x7fff530e9a5c
+	The output may change for every execution of the program, but the first line and the third line are always the same, and they are different from the second line.
+	"&a" is the address of the integer "a".
+	"&ap" is the address of the integer pointer "ap", which stores the address of the integer "a".
+	"&ar" is the address of "a" since "ar" is a reference of "a".
+
+Question 2
+	Reference and pointer have the same performance in most condition, but they are different actually. Please list the differences.
+Answer:
+	1. A pointer can be re-assigned any number of times while a reference can not be re-seated after binding.
+	2. Pointers can point nowhere (NULL), whereas reference always refer to an object. ## So a reference must be initialized when it is created, while a pointer need not be. ##
+	3. You can't take the address of a reference like you can with pointers.
+	4. There's no "reference arithmetics" (but you can take the address of an object pointed by a reference and do pointer arithmetics on it as in &obj + 5).
