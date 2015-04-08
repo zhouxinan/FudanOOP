@@ -17,3 +17,15 @@ Answer:
 	2. Pointers can point nowhere (NULL), whereas reference always refer to an object. ## So a reference must be initialized when it is created, while a pointer need not be. ##
 	3. You can't take the address of a reference like you can with pointers.
 	4. There's no "reference arithmetics" (but you can take the address of an object pointed by a reference and do pointer arithmetics on it as in &obj + 5).
+
+Question 3
+Answer:
+	## Use "make" to compile the program! ##
+	1. add
+		I set a boolean variable "replace_old_value" which indicated whether an old value is replaced. Search the dictionary for the given key. If the key is found, replace the old value with the new value, set "replace_old_value" true, exit the loop and return true. Else, the new word has to be inserted into the dictionary. If the dictionary's size is no less than 5000, return false since there is no capacity for the new word. Else, insert the new word and increase the size of the dictionary by one.
+	2. search
+		Use a loop to search the dictionary. If the given key is found, return the value of the key. If the given key is not found, return "".
+	3. remove
+		Use a loop to search the dictionary. If the given key is found, store the key's value in "value_of_key". Then, decrease the size of the dictionary by one and use an inner loop to move the words after the word founded forward so as to "free space". Remember to set the dict[size] a "void word". Then, return "value_of_key". If the given key is not found, return "".
+	4. update
+		Use a loop to search the dictionary. If the given key is found, store the key's old value in "previous_value", update the key's value, and return "previous_value". If the given key is not found, return "".
