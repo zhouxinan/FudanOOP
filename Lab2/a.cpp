@@ -14,13 +14,16 @@ int main(int argc, char const *argv[])
 {
 	loadCalendar("date.txt");
 	Commodity a("milk1", 3.1, 4, "2015/1/1");
-	
+	// if (calendar[0].find("/") != string::npos) {
+	// 	cout << "find!" << endl;
+	// }
+	//cout << calendar[0].find(".") << endl;
 	//Commodity b("milk2", 3.2, 4, "2015/1/1");
 	//Commodity c("milk3", 3.3, 4, "2015/1/1");
 	//Commodity d("milk4", 3.4, 4, "2015/1/1");
 	v.push_back(a);
-	a.dropMessage = "milk'1";
-	v.erase(v.begin() + 0);
+	//a.dropMessage = "milk'1";
+	//v.erase(v.begin() + 0);
 	//a.
 	//v.push_back(b);
 	//v.push_back(c);

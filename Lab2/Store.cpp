@@ -1,9 +1,4 @@
 #include "FamilyMart.h"
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-
 using namespace std;
 
 extern vector<string> calendar;
@@ -21,30 +16,40 @@ double Store::getRevenue() {
 void Store::sell(int calendarIndex) {
 	double todayRevenue = 0;
 	for (int i = 0; i < sellList.size(); i++) {
-		string commodity_name;
-		double discount = 1; // no discount as default
 		istringstream iss(sellList[i]);
+		string commodity_name;
 		iss >> commodity_name;
-		iss >> discount;
-		int oldestProductIndex = -1;
-		for (int j = 0; j < onShelfCommodity.size(); j++) {
-			if (onShelfCommodity[j].getName() == commodity_name) {
-				if (oldestProductIndex >= 0) {
-					if (onShelfCommodity[oldestProductIndex].getDropDateIndex() > onShelfCommodity[j].getDropDateIndex()) {
-						oldestProductIndex = j;
-					}
-				} else {
-					oldestProductIndex = j;
-				}
-			}
-		}
-		if (oldestProductIndex >= 0) {
-			todayRevenue += onShelfCommodity[oldestProductIndex].getPrice() * discount;
-			onShelfCommodity.erase(onShelfCommodity.begin() + oldestProductIndex);
+		if (sellList[i].find(".") != string::npos) {
+			double discount;
+			iss >> discount;
+			todayRevenue += sellCommodityWithDiscount(commodity_name, discount);
+		} else {
+			todayRevenue += sellCommodityWithDiscount(commodity_name);
 		}
 	}
 	revenue += todayRevenue;
 	cout << calendar[calendarIndex] << " Today revenue: " << todayRevenue << " Total revenue: " << revenue << endl;
+}
+
+double Store::sellCommodityWithDiscount(string commodity_name, double discount) {
+	int oldestProductIndex = -1;
+	for (int j = 0; j < onShelfCommodity.size(); j++) {
+		if (onShelfCommodity[j].getName() == commodity_name) {
+			if (oldestProductIndex >= 0) {
+				if (onShelfCommodity[oldestProductIndex].getDropDateIndex() > onShelfCommodity[j].getDropDateIndex()) {
+					oldestProductIndex = j;
+				}
+			} else {
+				oldestProductIndex = j;
+			}
+		}
+	}	
+	if (oldestProductIndex >= 0) {
+		double productRevenue = onShelfCommodity[oldestProductIndex].getPrice() * discount;
+		onShelfCommodity.erase(onShelfCommodity.begin() + oldestProductIndex);
+		return productRevenue;
+	}
+	return 0;	
 }
 
 void Store::product(int calendarIndex) {

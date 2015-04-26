@@ -1,5 +1,8 @@
 #include <string>
 #include <vector>
+#include <iostream>
+#include <sstream>
+#include <fstream>
 using namespace std;
 
 class Commodity {
@@ -34,4 +37,5 @@ public:
 	void loadProductList(string productListFilename);
 	void loadSellList(string sellListFilename);
 	void startOperate();
+	double sellCommodityWithDiscount(string commodity_name, double discount = 1.0);
 };
