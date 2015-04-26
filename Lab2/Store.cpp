@@ -3,7 +3,6 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include <cstring>
 
 using namespace std;
 
@@ -62,7 +61,7 @@ void Store::dropProduct(int calendarIndex) {
 	for (int j = 0; j < onShelfCommodity.size(); j++) {
 		if (calendarIndex == onShelfCommodity[j].getDropDateIndex()) {
 			Commodity toBeDroppedCommodity = onShelfCommodity[j];
-			toBeDroppedCommodity.dropMessage = toBeDroppedCommodity.getName() + " dropped";
+			toBeDroppedCommodity.setDropMessage();
 			onShelfCommodity.erase(onShelfCommodity.begin() + j);
 			j--;
 		}
@@ -109,7 +108,7 @@ void Store::loadSellList(string sellListFilename) {
 
 void Store::startOperate() {
 	for (int i = 0; i < calendar.size(); i++) {
-		if (commodityList.size() == 0) {
+		if (commodityList.size() == 0 && onShelfCommodity.size() == 0) {
 			break;
 		}
 		product(i);
@@ -117,13 +116,4 @@ void Store::startOperate() {
 		dropProduct(i);
 	}
 	cout << "Store closed!" << endl;
-	
 }
-
-void Store::printProductList() {
-	for (int i = 0; i < commodityList.size(); i++) {
-		cout << commodityList[i].getName() << endl;
-	}
-}
-
-

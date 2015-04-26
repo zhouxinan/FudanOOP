@@ -8,10 +8,11 @@ class Commodity {
 	int life;
 	string productDate;
 	int dropDateIndex;
+	string dropMessage;
 public:
 	Commodity(string commodity_name, double commodity_price, int commodity_life, string commodity_productDate);
 	~Commodity();
-	string dropMessage;
+	void setDropMessage();
 	string getName();
 	double getPrice();
 	int getLife();
@@ -33,5 +34,4 @@ public:
 	void loadProductList(string productListFilename);
 	void loadSellList(string sellListFilename);
 	void startOperate();
-	void printProductList();
 };

@@ -45,3 +45,7 @@ int Commodity::getDropDateIndex() {
 	}
 	return -1;
 }
+
+void Commodity::setDropMessage() {
+	dropMessage = name + " dropped";
+}
