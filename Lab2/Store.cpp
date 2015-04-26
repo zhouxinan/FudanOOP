@@ -61,7 +61,8 @@ void Store::product(int calendarIndex) {
 void Store::dropProduct(int calendarIndex) {
 	for (int j = 0; j < onShelfCommodity.size(); j++) {
 		if (calendarIndex == onShelfCommodity[j].getDropDateIndex()) {
-			onShelfCommodity[j].dropMessage = onShelfCommodity[j].getName() + " dropped";
+			Commodity toBeDroppedCommodity = onShelfCommodity[j];
+			toBeDroppedCommodity.dropMessage = toBeDroppedCommodity.getName() + " dropped";
 			onShelfCommodity.erase(onShelfCommodity.begin() + j);
 			j--;
 		}

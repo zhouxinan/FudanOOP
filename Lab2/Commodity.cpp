@@ -11,12 +11,13 @@ Commodity::Commodity(string commodity_name, double commodity_price, int commodit
 	life = commodity_life;
 	productDate = commodity_productDate;
 	dropDateIndex = getDropDateIndex();
+	dropMessage = "\0";
 }
 
 Commodity::~Commodity() {
-	if (dropMessage != "") {
+	if (dropMessage != "\0") {
 		cout << dropMessage << endl;
-		dropMessage = "";
+		dropMessage = "\0";
 	}
 }
 
