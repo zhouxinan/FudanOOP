@@ -1,0 +1,16 @@
+Question 1
+	Please describe some differences between overload and default argument.
+Answer:
+	The difference is that with default arguments the compiler is substituting arguments when you don’t want to put them in yourself. In some cases, if overloading is used, you may end up with two or more functions that have similar signatures and similar behaviors. If the functions have very different behaviors, it doesn’t usually make sense to use default arguments.
+	Overloaded functions with the same function name are compiled separately. But a function implemented with default argument is compiled only once, thus you can save space.  
+
+Question 2
+	How do you implement your discount function? Overload, default argument or other method? Why?
+Answer:
+	I implemented my discount function with default argument. Actually, I used to implement it without overloading or default argument and considered it to be elegent. But then I thought that it is the lab's requirement to implement it either with overloading or with default argument. So I implemented it again with default argument, only to find later that it is permissible to implement it with "other methods". Although sad, I learned something and felt excited.
+	I first check if a line in sell.txt includes ".". If it does, then I invoke the discount function with two parameters (the name of the commodity and the discount). Else, I invoke it with only one parameter, the name of the commodity, since the default value of discount is "1.0" which means original price.
+	I don't consider overloading as a good method to implement the discount function because selling commodities with original prices can be thought of as selling them with discount "1.0". Thus, the default argument implementation can keep us from duplicating the discount function, which is a must if I use overloading. We can achieve better code reuse. But in other cases, overloading may be better if two functions (to be overloaded) have very different behaviours.
+
+Notice:
+	Use "make" to compile my code.
+	Use "./lab2" to run the code.
