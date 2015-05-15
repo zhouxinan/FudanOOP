@@ -24,6 +24,10 @@ class VIP {
 	double point;
 public:
 	VIP(int id, string name, string gender, string telephone, int level, double point);
+	int getLevel();
+	int getID();
+	void addPoint(double point);
+	double getPoint();
 };
 
 class ShoppingCard {
@@ -33,6 +37,7 @@ public:
 	ShoppingCard(int id, double balance);
 	int getID();
 	double getBalance();
+	void pay(double bill);
 };
 
 class Cashier {
@@ -40,23 +45,11 @@ class Cashier {
 	vector<ShoppingCard> shoppingCardList;
 	vector<Commodity> commodityList;
 	string purchase_filename;
-// 	double revenue;
-	// string bill
-	// vector<Commodity> commodityList;
-// 	vector<Commodity> onShelfCommodity;
-// 	vector<string> sellList;
-
 public:
 	Cashier(string commodity_filename, string vip_filename, string shopping_card_filename, string purchase_filename);
 	void loadCommodityList(string commodity_filename);
 	void loadVIPList(string vip_filename);
 	void loadShoppingCardList(string shopping_card_filename);
-// 	double getRevenue();
-// 	void sell(int calendarIndex);
-// 	void product(int calendarIndex);
-// 	void dropProduct(int calendarIndex);
-	// void loadProductList(string productListFilename);
-// 	void loadSellList(string sellListFilename);
-	// void startOperate();
-// 	double sellCommodityWithDiscount(string commodity_name, double discount = 1.0);
+	void startOperate();
+	bool checkOut(int shoppingCardID, double bill);
 };

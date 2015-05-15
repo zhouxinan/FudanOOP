@@ -12,3 +12,7 @@ int ShoppingCard::getID() {
 double ShoppingCard::getBalance() {
 	return balance;
 }
+
+void ShoppingCard::pay(double bill) {
+	balance -= bill;
+}

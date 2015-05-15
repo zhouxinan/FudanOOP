@@ -6,5 +6,6 @@ int main(int argc, char const *argv[]) {
 		return 0;
 	}
 	Cashier cashier(argv[1], argv[2], argv[3], argv[4]);
+	cashier.startOperate();
 	return 0;
 }
