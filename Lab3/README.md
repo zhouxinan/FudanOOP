@@ -9,14 +9,14 @@ Lab3
     process.txt
 
 ### Solutions
-    main.cpp	Main routine
-    VIP.cpp	VIP class
-    Commodity.cpp	Commodity class
-    Cashier.cpp		Cashier class, containing logics
-    ShoppingCard.cpp	ShoppingCard class
-    Supermarket.h	a unified header file
+    main.cpp	                        Main routine
+    VIP.cpp	                            VIP class
+    Commodity.cpp	                    Commodity class
+    Cashier.cpp		                    Cashier class, containing logics
+    ShoppingCard.cpp	                ShoppingCard class
+    Supermarket.h                   	a unified header file
     makefile
-    document.txt	Document for the lab, containing details of my implementation
+    document.txt                    	Document for the lab, containing details of my implementation
 
 ### Instruction
     Use "make" to compile my code.
