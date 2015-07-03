@@ -36,3 +36,15 @@ bool isTooLong(const string& str) {
     }
     return false;
 }
+
+istream& operator>>(istream& is, Bignum& bignum) {
+    string str;
+    is >> str;
+    bignum.setNumber(str);
+    return is;
+}
+
+ostream& operator<<(ostream& os, Bignum& bignum) {
+    os << bignum.toString();
+    return os;
+}

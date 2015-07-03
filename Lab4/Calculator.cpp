@@ -29,15 +29,11 @@ void Calculator::startCalculate() {
 		Bignum firstBignum, secondBignum;
 		char op;
 		istringstream iss(formulaList[i]);
-		string a;
-		iss >> a;
-		firstBignum.setNumber(a);
-		cout << firstBignum.toString() << endl;
+		iss >> firstBignum;
+		cout << firstBignum << endl;
 		while (iss >> op) {
-			string b;
-			iss >> b;
-			secondBignum.setNumber(b);
-			cout << op << " " << secondBignum.toString() << endl;
+			iss >> secondBignum;
+			cout << op << " " << secondBignum << endl;
 		}
 	}
 	outputFile.close();

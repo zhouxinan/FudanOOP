@@ -24,6 +24,8 @@ public:
 	Bignum(const string& str);
 	void setNumber(const string& str);
 	string toString();
+	friend istream& operator>>(istream& is, Bignum& bignum);
+	friend ostream& operator<<(ostream& os, Bignum& bignum);
 };
 
 bool isTooLong(const string& str);
