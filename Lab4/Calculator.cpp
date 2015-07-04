@@ -20,21 +20,34 @@ void Calculator::loadFormulaList(string input_filename) {
 }
 
 void Calculator::startCalculate() {
-	ifstream outputFile(output_filename);
-	if (!outputFile.is_open()) {
-		cout << "Open " << output_filename << " error. Maybe it does not exist." << endl;
-		exit(0);
-	}
+	ofstream outputFile(output_filename);
 	for (int i = 0; i < formulaList.size(); ++i) {
 		Bignum firstBignum, secondBignum;
-		char op;
+		char op; // the input operator
 		istringstream iss(formulaList[i]);
 		iss >> firstBignum;
-		cout << firstBignum << endl;
 		while (iss >> op) {
 			iss >> secondBignum;
-			cout << op << " " << secondBignum << endl;
+			switch (op) {
+				case '+' :
+					firstBignum = firstBignum + secondBignum;
+					break;
+				case '-' :
+					firstBignum = firstBignum - secondBignum;
+					break;
+				case '*' :
+					firstBignum = firstBignum * secondBignum;
+					break;
+				case '/' :
+					firstBignum = firstBignum / secondBignum;
+					break;
+				default :
+					cout << "Unknown operator, use \"+\" instead." << endl;
+					firstBignum = firstBignum + secondBignum;
+			}
 		}
+		cout << firstBignum << endl;
+		outputFile << firstBignum << endl;
 	}
 	outputFile.close();
 }
